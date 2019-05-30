@@ -1,9 +1,10 @@
 #!usr/bin/env python
 # coding: utf-8
 
-from autoloads import Entity
-from base import BaseModel
+from models.base import BaseModel
 from config import my_db_models
+
+from autoloads import Entity
 
 # 根据自动加载的数据库models获取对应的model
 user = my_db_models('table_user')

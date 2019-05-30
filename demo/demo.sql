@@ -1,21 +1,21 @@
-CREATE SCHEMA `test_db` DEFAULT CHARACTER SET utf8 ;
+create schema `test_db` default character set utf8 ;
 
-CREATE TABLE `test_db`.`table_one` (
-  `id` INT NOT NULL AUTO_INCREMENT COMMENT '编号',
-  `name` VARCHAR(45) NOT NULL COMMENT '名称',
-  `text` VARCHAR(45) NULL COMMENT '文本',
-  `status` TINYINT NULL DEFAULT 0 COMMENT '状态',
-  PRIMARY KEY (`id`));
+create table `test_db`.`table_one` (
+  `id` int not null auto_increment comment '编号',
+  `name` varchar(45) not null comment '名称',
+  `text` varchar(45) null comment '文本',
+  `status` tinyint null default 0 comment '状态',
+  primary key (`id`));
 
-CREATE TABLE `test_db`.`table_two` (
-  `id` INT NOT NULL AUTO_INCREMENT COMMENT '编号',
-  `title` VARCHAR(45) NOT NULL COMMENT '标题',
-  `text` VARCHAR(45) NULL COMMENT '文本',
-  `status` TINYINT NULL DEFAULT 0 COMMENT '状态',
-  PRIMARY KEY (`id`));
+create table `test_db`.`table_two` (
+  `id` int not null auto_increment comment '编号',
+  `title` varchar(45) not null comment '标题',
+  `text` varchar(45) null comment '文本',
+  `status` tinyint null default 0 comment '状态',
+  primary key (`id`));
   
-  CREATE TABLE `test_db`.`table_user` (
-  `id` INT NOT NULL AUTO_INCREMENT COMMENT '编号',
-  `name` VARCHAR(45) NOT NULL COMMENT '姓名',
-  `passwd` VARCHAR(45) NULL COMMENT '密码',
-  PRIMARY KEY (`id`));
+  create table `test_db`.`table_user` (
+  `id` int not null auto_increment comment '编号',
+  `name` varchar(45) not null comment '姓名',
+  `passwd` varchar(45) null comment '密码',
+  primary key (`id`));

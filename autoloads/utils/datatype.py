@@ -2,9 +2,9 @@
 # coding: utf-8
 
 from datetime import date, datetime
-from types import ListType, DictType
-from json import dumps
 from decimal import Decimal
+from json import dumps
+from typing import Dict, Iterator
 
 
 def json_data_encode(json_data):
@@ -12,10 +12,11 @@ def json_data_encode(json_data):
 
         :param json_data
     """
+
     def _any(data):
-        if isinstance(data, ListType):
+        if isinstance(data, Iterator):
             return_data = _list(data)
-        elif isinstance(data, DictType):
+        elif isinstance(data, Dict):
             return_data = _dict(data)
         elif isinstance(data, Decimal):
             return_data = str(data)

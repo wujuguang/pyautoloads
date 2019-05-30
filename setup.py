@@ -2,6 +2,7 @@
 # coding=utf-8
 
 import os
+
 from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
@@ -11,7 +12,7 @@ NEWS = open(os.path.join(here, 'CHANGELOG.rst')).read()
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 zip_safe = not on_rtd
 
-version = '0.2.2.4'
+version = '0.3.0'
 
 setup(
     name="autoloads",
@@ -24,7 +25,7 @@ setup(
     keywords='autoloads',
     url='https://github.com/wujuguang/autoloads.git',
     package_data={},
-    packages=find_packages(),
+    packages=find_packages(exclude=['tests', 'demo']),
     install_requires=["pymysql", "sqlalchemy", "tornado", "mako", "pipe"],
     include_package_data=True,
     platforms=["any"],

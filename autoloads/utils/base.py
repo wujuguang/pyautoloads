@@ -75,7 +75,7 @@ class EntityHelper(object):
                 db_operate.flush()
                 db_operate.refresh(entity)
             db_operate.commit()
-        except Exception, ex:
+        except Exception as ex:
             db_operate.rollback()
             raise ex
         finally:
@@ -90,7 +90,7 @@ class EntityHelper(object):
                 db_operate.flush()
                 map(lambda x: db_operate.refresh(x), entitys)
             db_operate.commit()
-        except Exception, ex:
+        except Exception as ex:
             db_operate.rollback()
             raise ex
         finally:
@@ -102,7 +102,7 @@ class EntityHelper(object):
         try:
             db_operate.delete(entity)
             db_operate.commit()
-        except Exception, ex:
+        except Exception as ex:
             db_operate.rollback()
             raise ex
         finally:
@@ -114,7 +114,7 @@ class EntityHelper(object):
         try:
             db_operate.delete_all()
             db_operate.commit()
-        except Exception, ex:
+        except Exception as ex:
             db_operate.rollback()
             raise ex
         finally:
@@ -126,7 +126,7 @@ class EntityHelper(object):
         try:
             db_operate.update_all(**attrs)
             db_operate.commit()
-        except Exception, ex:
+        except Exception as ex:
             db_operate.rollback()
             raise ex
         finally:

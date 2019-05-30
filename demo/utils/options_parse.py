@@ -1,9 +1,8 @@
 #!usr/bin/env python
 # coding: utf-8
 
-from tornado.options import define, options
 from tornado.log import app_log
-
+from tornado.options import define, options
 
 define("output_encoding",
        default="utf-8",

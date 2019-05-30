@@ -1,14 +1,10 @@
 #!usr/bin/env python
 # coding: utf-8
-import sys
-
-reload(sys)
-sys.setdefaultencoding("utf8")
-
+import tornado.httpserver
 import tornado.ioloop
 import tornado.web
-import tornado.httpserver
 from tornado.options import options
+
 from autoloads import app
 from utils.options_parse import parse_options_config
 

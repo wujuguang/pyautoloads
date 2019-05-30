@@ -1,13 +1,14 @@
 #!usr/bin/env python
 # coding: utf-8
 
-from autoloads import app, BaseRequestHandler, BuildFilter, RequestParser
 from models.models import User
+
+from autoloads import app, BaseRequestHandler, BuildFilter, RequestParser
 
 
 class BaseHandler(BaseRequestHandler):
     def response_json(self, data="", curr_page_index=1, page_count=0, success=True, **kw):
-        kargs = dict(
+        kwargs = dict(
             success=success,
             message=dict(
                 curr_page_index=curr_page_index,
@@ -15,7 +16,7 @@ class BaseHandler(BaseRequestHandler):
                 data=data,
                 **kw))
 
-        result = self.build_response_json(**kargs)
+        result = self.build_response_json(**kwargs)
         self.write(result)
         self.finish()
 

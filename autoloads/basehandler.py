@@ -3,6 +3,7 @@
 
 import tornado.web
 from mako.lookup import TemplateLookup
+
 from autoloads.utils import json_encode
 
 
@@ -20,11 +21,11 @@ class _Template(object):
 
         if not hasattr(cls, '_instance'):
             cls._instance = object.__new__(cls)
-            cls._instance._init_template(directories, module_directory, output_encoding, cache_enabled)
+            cls._instance.__init_template(directories, module_directory, output_encoding, cache_enabled)
 
         return cls._instance
 
-    def _init_template(self, directories, module_directory, output_encoding, cache_enabled):
+    def __init_template(self, directories, module_directory, output_encoding, cache_enabled):
         """创建实例 "_lookup" 属性.
 
             :param directories:         mako模板文件存储位置, 列表形式: ['./templates']
@@ -48,7 +49,7 @@ class HttpRequestHandler(tornado.web.RequestHandler):
     """实现模板的渲染的类.
     """
 
-    def getParameter(self, key, default_value=None):
+    def get_parameter(self, key, default_value=None):
         return self.get_argument(key, default_value)
 
     def prepare(self):
@@ -59,15 +60,15 @@ class HttpRequestHandler(tornado.web.RequestHandler):
         _output_encoding = self.settings.get('output_encoding', 'utf-8')
         _cache_enabled = self.settings.get('cache_enabled', False)
 
-        self._template = _Template(directories=_directories,
-                                   module_directory=_module_directory,
-                                   output_encoding=_output_encoding,
-                                   cache_enabled=_cache_enabled)
+        self.template = _Template(directories=_directories,
+                                  module_directory=_module_directory,
+                                  output_encoding=_output_encoding,
+                                  cache_enabled=_cache_enabled)
 
     def render_template(self, template_name, **kwargs):
         """使用指定数据, 渲染指定模板.
         """
-        return self._template.render_template(template_name, **kwargs)
+        return self.template.render_template(template_name, **kwargs)
 
     @staticmethod
     def build_response_json(**kwargs):
