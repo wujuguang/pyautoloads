@@ -12,8 +12,8 @@ class Entity(object):
 
     db_operate_cls = DBEntityHelper
 
-    def __init__(self, **kargs):
-        map(lambda x: setattr(self, "%s" % x, kargs[x]), kargs)
+    def __init__(self, **kwargs):
+        map(lambda x: setattr(self, "%s" % x, kwargs[x]), kwargs)
 
     def save(self):
         self.__class__.add(self)

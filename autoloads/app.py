@@ -1,8 +1,6 @@
 #!usr/bin/env python
 # coding: utf-8
 
-from __future__ import print_function
-
 import os
 from autoloads.utils import json_encode
 
@@ -19,9 +17,9 @@ class Tornado(object):
     handlers = []  # 存储该应用程序的处理器.
     not_scan_file = ['__init__']  # 不扫描的文件名.
 
-    def __new__(cls, *args, **kw):
+    def __new__(cls, *args, **kwargs):
         if not hasattr(cls, 'instance'):
-            cls.instance = object.__new__(Tornado, *args, **kw)
+            cls.instance = object.__new__(Tornado, *args, **kwargs)
         return cls.instance
 
     def __call__(self):

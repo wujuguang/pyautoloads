@@ -19,3 +19,5 @@ include autoloads/utils/base.py
 include autoloads/utils/dbhelper.py
 include autoloads/utils/dbpipe.py
 include autoloads/utils/dbutils.py
+
+prune demo/*

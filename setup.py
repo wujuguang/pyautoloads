@@ -9,9 +9,6 @@ here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
 NEWS = open(os.path.join(here, 'CHANGELOG.rst')).read()
 
-on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-zip_safe = not on_rtd
-
 version = '0.3.0'
 
 setup(
@@ -24,14 +21,11 @@ setup(
     author_email='returnliu@gmail.com',
     keywords='autoloads',
     url='https://github.com/wujuguang/autoloads.git',
-    package_data={},
-    packages=find_packages(exclude=['tests', 'demo']),
+    packages=find_packages(),
     install_requires=["pymysql", "sqlalchemy", "tornado", "mako", "pipe"],
     include_package_data=True,
     platforms=["any"],
-    zip_safe=False,
     classifiers=[
-        # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
         'Development Status :: 4 - Beta',
         'Environment :: Console',
         'Environment :: Web Environment',
@@ -39,7 +33,7 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.6',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Utilities',
         'Topic :: Software Development :: Libraries :: Python Modules',
